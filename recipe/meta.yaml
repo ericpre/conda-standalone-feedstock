@@ -26,12 +26,14 @@ build:
 
 requirements:
   build:
+    - python ={{ python_version }}           # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+  host:
     - pyinstaller
     - python ={{ python_version }}
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - conda ={{ version }}
     - conda-package-handling >=1.6
-    - menuinst >=1.4.18  # [win]
+    - menuinst >=1.4.18,<2                   # [win]
   run_constrained:
     - constructor >=3.2.2
 
