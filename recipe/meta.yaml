@@ -28,6 +28,7 @@ requirements:
   build:
     - pyinstaller
     - python ={{ python_version }}
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - conda ={{ version }}
     - conda-package-handling >=1.6
     - menuinst >=1.4.18  # [win]
